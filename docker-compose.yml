@@ -16,6 +16,28 @@ services:
     networks:
       - elk-stack-network
 
+  logstash:
+    build:
+      context: logstash/
+    ports:
+      - "5000:5000"
+    networks:
+      - elk-stack-network
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    build:
+      context: kibana/
+    ports:
+      - "5601:5601"
+    networks:
+      - elk-stack-network
+    depends_on:
+      - elasticsearch
+
+
+
 volumes:
   esdata1:
     driver: local

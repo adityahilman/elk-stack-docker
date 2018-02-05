@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  elasticsearch:
+    build:
+      context: elasticsearch/
+    volumes:
+      - ./60-elasticsearch.conf:/etc/sysctl.d/60-elasticsearch.conf:ro
+      - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk-stack-network
+
+volumes:
+  esdata1:
+    driver: local
+
+networks:
+  elk-stack-network:  

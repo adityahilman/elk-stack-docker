@@ -1,1 +1,3 @@
-FROM docker.elastic.co/logstash/logstash:5.5.3
+FROM docker.elastic.co/logstash/logstash:6.2.1
+
+RUN bin/logstash-plugin install logstash-input-cloudwatch

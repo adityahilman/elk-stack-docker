@@ -2,7 +2,7 @@ version: '2'
 
 services:
   logstash:
-    image: docker.elastic.co/logstash/logstash:6.2.1
+    image: adityahilman/logstash:cloudwatch-logs-input-6.2.1
     volumes:
       - ./pipeline:/usr/share/logstash/pipeline:ro
       - ./config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro

@@ -20,7 +20,7 @@ services:
       - esnetwork
 
   logstash:
-    image: adityahilman/logstash:cloudwatch-6.2.1
+    image: adityahilman/logstash:cloudwatch-logs-input-6.2.1
     volumes:
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
